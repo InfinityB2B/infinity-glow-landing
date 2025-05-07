@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -61,6 +62,19 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
+				},
+				infinity: {
+					50: '#ffe6e6',
+					100: '#ffcccc',
+					200: '#ff9999',
+					300: '#ff6666',
+					400: '#ff3333',
+					500: '#ff0000',
+					600: '#cc0000',
+					700: '#990000',
+					800: '#800000',
+					900: '#660000',
+					950: '#2D0000',
 				}
 			},
 			borderRadius: {
@@ -84,11 +98,63 @@ export default {
 					to: {
 						height: '0'
 					}
+				},
+				'fade-in': {
+					'0%': {
+						opacity: '0',
+						transform: 'translateY(10px)'
+					},
+					'100%': {
+						opacity: '1',
+						transform: 'translateY(0)'
+					}
+				},
+				'fade-out': {
+					'0%': {
+						opacity: '1'
+					},
+					'100%': {
+						opacity: '0'
+					}
+				},
+				'glow-pulse': {
+					'0%, 100%': {
+						'box-shadow': '0 0 10px 2px rgba(255, 0, 0, 0.4)'
+					},
+					'50%': {
+						'box-shadow': '0 0 15px 5px rgba(255, 0, 0, 0.6)'
+					}
+				},
+				'bounce-subtle': {
+					'0%, 100%': {
+						transform: 'translateY(0)'
+					},
+					'50%': {
+						transform: 'translateY(-5px)'
+					}
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'fade-in': 'fade-in 0.5s ease-out',
+				'fade-out': 'fade-out 0.5s ease-out',
+				'glow-pulse': 'glow-pulse 2s infinite ease-in-out',
+				'bounce-subtle': 'bounce-subtle 2s infinite ease-in-out'
+			},
+			backgroundImage: {
+				'gradient-red': 'linear-gradient(to bottom, #FF0000, #2D0000)',
+				'gradient-dark': 'linear-gradient(to bottom, #2D0000, #000000)',
+				'gradient-horizontal': 'linear-gradient(to right, #2D0000, #FF0000, #2D0000)'
+			},
+			boxShadow: {
+				'glow-sm': '0 0 5px 2px rgba(255, 0, 0, 0.3)',
+				'glow-md': '0 0 10px 3px rgba(255, 0, 0, 0.4)',
+				'glow-lg': '0 0 15px 5px rgba(255, 0, 0, 0.5)',
+			},
+			fontFamily: {
+				'inter': ['Inter', 'sans-serif'],
+				'dm-sans': ['"DM Sans"', 'sans-serif'],
 			}
 		}
 	},
