@@ -1,6 +1,7 @@
 
-import React, { useEffect } from 'react';
+import React from 'react';
 import { ArrowDown } from 'lucide-react';
+import { Button } from '@/components/ui/button';
 
 const HeroSection = () => {
   const scrollToNext = () => {
@@ -9,38 +10,43 @@ const HeroSection = () => {
 
   return (
     <section id="hero" className="relative min-h-screen flex items-center justify-center">
-      <div className="absolute inset-0 bg-gradient-to-b from-infinity-950/80 to-black z-0"></div>
+      <div className="absolute inset-0 bg-gradient-to-b from-infinity-950/90 to-black z-0"></div>
       <div 
         className="absolute inset-0 z-0 opacity-30" 
         style={{
-          backgroundImage: `url('https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&q=80')`,
+          backgroundImage: `url('https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&q=80')`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           filter: 'brightness(0.4) contrast(1.2)'
         }}
       ></div>
       
-      <div className="infinity-container relative z-10 text-center">
+      {/* Red glow overlay */}
+      <div className="absolute inset-0 z-0 opacity-10 bg-infinity-500 blur-3xl"></div>
+      
+      <div className="infinity-container relative z-10 text-center px-6 md:px-8">
         <div className="max-w-4xl mx-auto animate-fade-in">
-          <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-extrabold text-white mb-6 leading-tight">
-            Sua empresa cresce em visibilidade, mas as vendas não acompanham?
+          <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-extrabold text-infinity-500 mb-6 leading-tight glow-text">
+            Sua empresa está realmente crescendo ou morrendo?
           </h1>
           
-          <p className="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto">
-            Transformamos operação, marketing e vendas em um só ecossistema de resultados
+          <p className="text-lg md:text-xl text-gray-300 mb-8 max-w-3xl mx-auto">
+            Diagnosticamos, reestruturamos e potencializamos todo o funil do seu negócio — da operação ao faturamento. 
+            Uma consultoria personalizada de verdade, feita para empresários que querem parar de apagar incêndios e começar a escalar com consistência.
           </p>
           
           <div className="mt-10">
-            <button 
+            <Button 
               onClick={() => document.getElementById('contato')?.scrollIntoView({ behavior: 'smooth' })}
-              className="infinity-btn-primary text-lg animate-glow-pulse"
+              className="infinity-btn-primary text-lg font-bold animate-glow-pulse px-8 py-6"
+              size="lg"
             >
-              Solicitar diagnóstico gratuito
-            </button>
+              Fale Conosco Agora
+            </Button>
             
             <div className="mt-8">
               <div className="inline-flex items-center px-4 py-2 rounded-full bg-black/30 backdrop-blur-sm border border-infinity-800/50">
-                <span className="text-gray-300">+7 anos transformando empresas em todo o Brasil</span>
+                <span className="text-gray-300 italic opacity-60">+7 anos transformando empresas no Brasil</span>
               </div>
             </div>
           </div>

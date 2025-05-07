@@ -99,7 +99,7 @@
   }
 
   .glow-text {
-    @apply text-white relative;
+    @apply text-infinity-500 relative;
     text-shadow: 0 0 10px rgba(255, 0, 0, 0.5), 0 0 20px rgba(255, 0, 0, 0.3);
   }
   

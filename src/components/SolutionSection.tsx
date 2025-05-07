@@ -1,60 +1,70 @@
 
 import React from 'react';
+import { Brain, RefreshCcw, Puzzle, TrendingUp, Handshake } from 'lucide-react';
 
 const SolutionSection = () => {
+  const solutions = [
+    {
+      icon: <Brain className="h-12 w-12 text-infinity-500" />,
+      title: "Diagnóstico individual e preciso",
+      description: "Análise completa das áreas críticas do seu negócio."
+    },
+    {
+      icon: <RefreshCcw className="h-12 w-12 text-infinity-500" />,
+      title: "Funil completo, da atração ao pós-venda",
+      description: "Visão integrada de todo o processo comercial."
+    },
+    {
+      icon: <Puzzle className="h-12 w-12 text-infinity-500" />,
+      title: "Integração entre áreas",
+      description: "Alinhamento total entre marketing, vendas e operação."
+    },
+    {
+      icon: <TrendingUp className="h-12 w-12 text-infinity-500" />,
+      title: "Plano estratégico sob medida",
+      description: "Estratégias personalizadas para seu negócio."
+    },
+    {
+      icon: <Handshake className="h-12 w-12 text-infinity-500" />,
+      title: "Acompanhamento verdadeiro",
+      description: "Suporte contínuo e ajustes estratégicos."
+    }
+  ];
+
   return (
-    <section id="solucao" className="py-20 bg-gradient-to-b from-black to-infinity-950">
+    <section id="solution-section" className="py-20 bg-gradient-to-b from-infinity-950 to-black">
       <div className="infinity-container">
-        <h2 className="section-title text-center">
+        <h2 className="section-title text-center mb-6">
           <span className="relative">
-            A SOLUÇÃO COM NOME E SOBRENOME
+            Consultoria personalizada, prática e estratégica para quem quer escalar de forma sólida.
             <span className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-infinity-500 to-transparent"></span>
           </span>
         </h2>
         
-        <div className="mt-12 flex flex-col md:flex-row gap-10 items-center">
-          <div className="md:w-1/2">
-            <p className="text-gray-300 text-lg mb-8 leading-relaxed">
-              A INFINITY nasceu com a missão de transformar empresas de dentro para fora. Com mais de 7 anos no mercado, 
-              já ajudamos centenas de negócios a destravar seu potencial de vendas e estrutura.
-            </p>
-            
-            <div className="glow-line"></div>
-            
-            <p className="text-white text-xl font-medium italic">
-              "Não somos uma consultoria de prateleira. Cada cliente é tratado como um projeto único e exclusivo."
-            </p>
-          </div>
-          
-          <div className="md:w-1/2 grid grid-cols-1 gap-6">
-            <div className="infinity-card transform transition-transform hover:scale-[1.02] hover:shadow-glow-md">
-              <div className="flex items-center">
-                <div className="mr-6 p-3 bg-infinity-900 rounded-full">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-infinity-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-                  </svg>
-                </div>
-                <div>
-                  <h3 className="text-xl font-bold text-white">INFINITY ACADEMY</h3>
-                  <p className="text-gray-300">Consultoria e Treinamentos</p>
-                </div>
+        <p className="section-subtitle text-center max-w-3xl mx-auto mb-12">
+          A INFINITY atua onde a maioria não sabe nem olhar: no alinhamento real entre marketing, vendas, operação e crescimento. 
+          Aqui, nada é genérico. Cada empresa recebe um diagnóstico único, um plano estratégico exclusivo e acompanhamento direto da nossa equipe.
+        </p>
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8 mt-12">
+          {solutions.map((solution, index) => (
+            <div 
+              key={index} 
+              className="infinity-card flex flex-col items-center text-center group h-full"
+            >
+              <div className="mb-4 group-hover:animate-glow-pulse">
+                {solution.icon}
               </div>
+              <h3 className="text-xl font-bold text-white mb-3">{solution.title}</h3>
+              <p className="text-gray-300 text-sm">{solution.description}</p>
             </div>
-            
-            <div className="infinity-card transform transition-transform hover:scale-[1.02] hover:shadow-glow-md">
-              <div className="flex items-center">
-                <div className="mr-6 p-3 bg-infinity-900 rounded-full">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-infinity-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-                  </svg>
-                </div>
-                <div>
-                  <h3 className="text-xl font-bold text-white">INFINITY B2B</h3>
-                  <p className="text-gray-300">Assessoria e Serviços</p>
-                </div>
-              </div>
-            </div>
-          </div>
+          ))}
+        </div>
+        
+        <div className="mt-12 text-center">
+          <p className="text-gray-200 text-lg italic opacity-80">
+            São mais de 7 anos atendendo empresas em todo o Brasil, com um único objetivo: transformar estrutura em resultado.
+          </p>
         </div>
       </div>
     </section>
