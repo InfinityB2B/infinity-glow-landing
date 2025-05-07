@@ -6,12 +6,21 @@ import { Input } from '@/components/ui/input';
 import { Form, FormControl, FormField, FormItem } from '@/components/ui/form';
 import { useForm } from 'react-hook-form';
 import { supabase } from '@/integrations/supabase/client';
+import { toast } from 'sonner';
+
+type LeadFormData = {
+  fullName: string;
+  companyName: string;
+  location: string;
+  whatsapp: string;
+  email: string;
+};
 
 const ContactSection = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   
-  const form = useForm({
+  const form = useForm<LeadFormData>({
     defaultValues: {
       fullName: '',
       companyName: '',
@@ -21,7 +30,7 @@ const ContactSection = () => {
     }
   });
 
-  const onSubmit = async (data: any) => {
+  const onSubmit = async (data: LeadFormData) => {
     try {
       setIsSubmitting(true);
       
@@ -34,16 +43,22 @@ const ContactSection = () => {
             location: data.location,
             whatsapp: data.whatsapp,
             email: data.email,
-            created_at: new Date()
+            created_at: new Date().toISOString()
           }
         ]);
         
-      if (error) throw error;
+      if (error) {
+        console.error('Error submitting form:', error);
+        toast.error('Erro ao enviar o formulário. Tente novamente.');
+        return;
+      }
       
       setIsSubmitted(true);
       form.reset();
+      toast.success('Formulário enviado com sucesso!');
     } catch (error) {
       console.error('Error submitting form:', error);
+      toast.error('Erro ao enviar o formulário. Tente novamente.');
     } finally {
       setIsSubmitting(false);
     }
