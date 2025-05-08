@@ -45,7 +45,7 @@ const Index = () => {
   }, []);
   
   return (
-    <div className="min-h-screen bg-gradient-to-b from-infinity-950 to-black text-white">
+    <div className="min-h-screen bg-gradient-to-b from-infinity-950 to-black text-white overflow-hidden">
       <Navbar />
       <HeroSection />
       <ProblemSection />
@@ -53,8 +53,8 @@ const Index = () => {
       <MethodologySection />
       <ResultsSection />
       <TeamSection />
-      <ContactSection />
       <FaqSection />
+      <ContactSection />
       <Footer />
     </div>
   );
